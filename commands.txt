@@ -1,0 +1,18 @@
+cd /home/site/wwwroot
+mkdir -p storage/framework/sessions
+mkdir -p storage/framework/views
+mkdir -p storage/framework/cache
+mkdir -p bootstrap/cache
+
+
+chown -R www-data:www-data storage bootstrap/cache
+chmod -R 775 storage bootstrap/cache
+
+chown -R nobody:nogroup storage bootstrap/cache
+chmod -R 775 storage bootstrap/cache
+
+
+php artisan config:clear
+php artisan cache:clear
+php artisan view:clear
+php artisan route:clear
